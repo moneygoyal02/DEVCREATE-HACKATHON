@@ -36,3 +36,8 @@ app.get("/", function (req, resp) {
     let filePath = process.cwd() + "/web/SIGNIN.html";
     resp.sendFile(filePath);
   });
+
+  app.get("/SIGNUP", function (req, resp) {
+    let filePath = process.cwd() + "/web/SIGNUP.html";
+    resp.sendFile(filePath);
+  });
