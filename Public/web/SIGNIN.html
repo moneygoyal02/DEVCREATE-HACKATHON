@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign In</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body{
+    font-family: 'poppins',sans-serif;
+    background-color: #ececec;
+}
+
+.box-area{
+    width: 930px;
+
+}
+
+
+.right-box{
+    padding: 40px 30px 40px 30px;
+}
+
+/* -------------place holder--------------- */
+
+::placeholder{
+    font-size: 16px;
+}
+
+.rounded-4{
+    border-radius: 20px;
+}
+
+.rounded-5{
+    border-radius: 30px;
+}
+    </style>
+    <!-- <link rel="stylesheet" href="/SIGNUP-IN/SIGNIN-UP.css" /> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- -----------------------------------------Main Container----------------------------------------- -->
+    <div
+      class="container d-flex justify-content-center align-items-center min-vh-100"
+    >
+      <!-- -----------------------------------------login Container----------------------------------------- -->
+      <div class="row border rounded-5 p-3 bg-white shadow box-area">
+        <!-- -----------------------------------------Left Box----------------------------------------- -->
+        <div
+          class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+          style="background: #103cbe"
+        >
+          <div class="imageee mb-3">
+            <img
+              src="/SIGNUP-IN/1.png"
+              alt="pic"
+              class="img-fluid"
+              style="width: 250px"
+            />
+          </div>
+          <p
+            class="text-white fs-2"
+            style="
+              font-family: 'Courier New', Courier, monospace;
+              font-weight: 600;
+            "
+          >
+            Verified Access
+          </p>
+
+          <small
+            class="text-white text-wrap text-center"
+            style="width: 17rem; font-family: 'Courier New', Courier, monospace"
+          >
+            Embark on a creative journey with skilled minds, where design meets
+            innovation. Join us today!
+          </small>
+        </div>
+
+        <!-- -----------------------------------------Right Box----------------------------------------- -->
+        <div class="col-md-6 right-box">
+          <div class="row align-items-center">
+            <!-- ----------Header--------------- -->
+            <div class="header-text mb-4">
+              <h2>Hello,Again</h2>
+              <p>we are happy to have you back.</p>
+            </div>
+            <!-- ----------Email-Address--------------- -->
+            <div class="input-group mb-3">
+              <input
+                type="text "
+                class="form-control form-control-lg bg-light fs-6"
+                placeholder="Email address"
+              />
+            </div>
+
+            <!-- ----------Password--------------- -->
+
+            <div class="input-group mb-3">
+              <input
+                type="password"
+                class="form-control form-control-lg bg-light fs-6"
+                placeholder="password"
+              />
+            </div>
+
+            <!-- -------------------------------------- -->
+
+            <div class="input mb-3">
+
+            <button class="btn  btn-lg btn-primary w-100 fs-6 ">
+
+              <small>Login</small>
+            </button>
+
+          </div>
+
+
+            <!-- -------------------------------------- -->
+            <div class="input-group justify-content-between d-flex mb-5">
+              <!-- -----left------ -->
+
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="checkform"
+                />
+                <label for="checkform" class="form-check-label text-secondary">
+                  <small> Remember Me </small>
+                </label>
+              </div>
+              <!-- -----right------ -->
+
+              <div class="forgot">
+                <small><a href="#">Forgot password?</a></small>
+              </div>
+            </div>
+
+            <!-- -------------------------------------- -->
+
+            <div class="input-group mb-3">
+              <button class="btn btn-lg btn-light w-100 fs-6">
+                <img
+                  src="/SIGNUP-IN/google.png"
+                  alt=""
+                  style="width: 40px"
+                  class="me-2"
+                />
+                <small>Sign In with Google</small>
+              </button>
+            </div>
+
+            <!-- -------------------------------------- -->
+
+            <div class="row">
+              <small>Don't have account? <a href="#">Sign Up</a></small>
+            </div>
+
+            <!-- -------------------------------------- -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
