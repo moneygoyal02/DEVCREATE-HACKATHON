@@ -31,3 +31,8 @@ app.get("/", function (req, resp) {
     let filePath = process.cwd() + "/web/first.html";
     resp.sendFile(filePath);
   });
+
+  app.get("/SIGNIN", function (req, resp) {
+    let filePath = process.cwd() + "/web/SIGNIN.html";
+    resp.sendFile(filePath);
+  });
