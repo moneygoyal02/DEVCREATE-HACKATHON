@@ -215,5 +215,17 @@ app.get("/", function (req, resp) {
     }
   });
 
+  // -----------------------------------------------------------
+
+  app.get("/vd", function (req, resp) {
+    let filePath = process.cwd() + "/web/vendor-dash.html";
+    resp.sendFile(filePath);
+  });
+
+  app.get("/vp", function (req, resp) {
+    let filePath = process.cwd() + "/web/vendor-profile.html";
+    resp.sendFile(filePath);
+  });
+
   
 
