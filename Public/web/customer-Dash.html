@@ -20,7 +20,29 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+<!-- ------------------password update ----------------------- -->
+    <script>
+        $(document).ready(function () {
+          $("#changebtn").click(function () {
+            let obj = {
+              url: "/changepass",
+              data: {
+                email: $("#EMail").val(),
+                oldpwd: $("#oldPass").val(),
+                newpwd: $("#NewPwd").val(),
+              },
+            };
+  
+            $.ajax(obj)
+              .done(function (resp) {
+                alert(resp);
+              })
+              .fail(function (err) {
+                alert("Error=" + err);
+              });
+          });
+        });
+      </script>
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -78,7 +100,7 @@
                 </div>
                 <h3 class="card-titel">Profile</h3>
                 
-                <a href="#" class="btn btn-primary mt-3"
+                <a href="/cp" class="btn btn-primary mt-3"
                   >Visit</a
                 >
               </div>
@@ -130,15 +152,120 @@
             <div class="card text-center bg-white pb-2">
               <div class="card-body text-dark">
                 <div class="img-area mb-4">
-                  <img src="/pics/setting.png" class="img-fluid"  style="height:277px;" alt="" />
+                  <img src="/pics/setting.png" class="img-fluid"  style="height:290px;" alt="" />
                 </div>
                 <h3 class="card-titel">Setting</h3>
                 
-                <a href="#" class="btn btn-primary mt-3"
-                  >Visit</a
-                >
+                <button
+                class="btn btn-primary"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#settingmodal"
+              >
+                Visit
+              </button>
               </div>
             </div>
+            <!---------Setting-Modal------- -->
+
+        <div
+        class="modal fade"
+        id="settingmodal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Setting
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body align-items-center" style="width: 95%">
+              <!-- ------------------------EMAIL ADDRESS-------------------------------- -->
+
+              <form>
+                <div class="row mt-3 mb-3">
+                  <div class="col">
+                    <label for="EMail" class="form-label"
+                      >Email Id <span id="eMail"></span
+                    ></label>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg bg-light fs-6"
+                      placeholder="Email address"
+                      id="EMail"
+                      
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- ------------------------OLD-PASSWORD---------------------------- -->
+
+                <div class="row mb-3 mt-3">
+                  <div class="col">
+                    <label for="oldPass" class="form-label"
+                      >Old Password
+                    </label>
+                    <input
+                      type="password"
+                      class="form-control form-control-lg bg-light fs-6"
+                      placeholder="Password"
+                      name="txtPwd"
+                      id="oldPass"
+                      required
+                    />
+                  </div>
+                </div>
+                <!-- -------------------------New Password---------------------------------- -->
+
+                <div class="row mb-3 mt-3">
+                  <div class="col">
+                    <label for="NewPwd" class="form-label"
+                      >New Password <span id="errNPass"></span
+                    ></label>
+                    <input
+                      type="password"
+                      class="form-control form-control-lg bg-light fs-6"
+                      placeholder="Password"
+                      name="NewPwd"
+                      id="NewPwd"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- --------------------------Change BUTTON--------------------------------- -->
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    id="changebtn"
+                  >
+                    Change
+                  </button>
+                  <span id="changeerr"></span>
+                </div>
+              </form>
+
+              <!-- ----------------------------------------------------------- -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------------------------------ -->
           </div>
         </div>
       </div>
