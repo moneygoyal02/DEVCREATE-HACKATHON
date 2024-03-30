@@ -32,12 +32,21 @@ app.get("/", function (req, resp) {
     resp.sendFile(filePath);
   });
 
-  app.get("/SIGNIN", function (req, resp) {
-    let filePath = process.cwd() + "/web/SIGNIN.html";
-    resp.sendFile(filePath);
-  });
-
-  app.get("/SIGNUP", function (req, resp) {
-    let filePath = process.cwd() + "/web/SIGNUP.html";
-    resp.sendFile(filePath);
+  app.post("/profile-save", function (req, resp) {
+    // create table users (emailid varchar(30) primary key, pwd varchar(30) , usertype varchar(10) , dos date , status int );
+    const email = req.body.txttEmail;
+    const password = req.body.txtPwd;
+    const usertype = req.body.utype;
+    const status = 1;
+  
+    mysql.query(
+      "insert into users values(?,?,?,current_date(),?)",
+      [email, password, usertype, status],
+      function (err) {
+        if (err == null) {
+          resp.send("Sign up successfully");
+          
+        } else resp.send(err.message);
+      }
+    );
   });
