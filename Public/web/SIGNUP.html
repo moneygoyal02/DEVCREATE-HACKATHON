@@ -67,10 +67,10 @@
 
             <div class="mb-3">
               <label for="formGroupExampleInput" class="form-label"
-                >Full Name</label
+                >Email id</label
               >
               <input
-                type="text"
+                type="email"
                 class="form-control"
                 id="formGroupExampleInput"
                 
@@ -78,10 +78,10 @@
             </div>
             <div class="mb-3">
               <label for="formGroupExampleInput2" class="form-label"
-                >Email Address</label
+                >Password</label
               >
               <input
-                type="text"
+                type="password"
                 class="form-control"
                 id="formGroupExampleInput2"
                 
@@ -89,15 +89,17 @@
             </div>
 
             <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label"
-                >Password</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="formGroupExampleInput"
-                
-              />
+              <select
+              class="form-select form-control form-select-lg bg-light fs-6"
+              aria-label="Default select example"
+              name="utype"
+              id="utype"
+              required
+            >
+              <option selected disabled value="">Choose...</option>
+              <option value="Customer">Customer</option>
+              <option value="Provider">Vendor</option>
+            </select>
             </div>
 
             <!-- ----------------send otp------------------- -->
@@ -108,34 +110,10 @@
               </button>
             </div>
 
-            <!-- ---------------------------------- -->
-            <div class="mb-3 text-center d-flex justify-content-center align-items-center">
-                <div class="me-2" style="height: 0.3px; background: #ccc; width: 45%;">
-                    
-                </div>
-                <div class="me-2">Or</div>
-                <div class="me-2" style="height: 0.3px; background: #ccc; width: 45%;">
-                    
-                </div>
-            </div>
+           
             
             
 
-            <!-- -----------------sign up with google------- -->
-
-            <div class="input-group  ">
-              <button class="btn btn-lg btn-light w-100 fs-6">
-                <img
-                  src="/pics/google.png"
-                  alt=""
-                  style="width: 40px"
-                  class="me-2"
-                />
-                <small>Sign Up with Google</small>
-              </button>
-            </div>
-
-            <!-- ---------------------------------------- -->
           </div>
         </div>
       </div>
