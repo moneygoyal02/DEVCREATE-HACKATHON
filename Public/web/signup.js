@@ -16,7 +16,7 @@
 
           $.ajax(obj)
             .done(function (resp) {
-              $("#signerr").html(resp).addClass("ok").removeClass("not-ok");
+             alert(resp);
             })
             .fail(function (err) {
               alert("Error=" + err);
