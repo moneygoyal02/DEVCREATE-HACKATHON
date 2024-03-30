@@ -10,6 +10,16 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="signin.js"></script>
 
     <link rel="stylesheet" href="/SIGN-IN.css" />
     <script
@@ -69,9 +79,10 @@
             <!-- ----------Email-Address--------------- -->
             <div class="input-group mb-3">
               <input
-                type="text "
+                type="email "
                 class="form-control form-control-lg bg-light fs-6"
                 placeholder="Email address"
+                id="txtEmail"
               />
             </div>
 
@@ -82,13 +93,14 @@
                 type="password"
                 class="form-control form-control-lg bg-light fs-6"
                 placeholder="password"
+                id="logpass"
               />
             </div>
 
             <!-- -------------------------------------- -->
 
             <div class="input mb-3">
-              <button class="btn btn-lg btn-primary w-100 fs-6">
+              <button class="btn btn-lg btn-primary w-100 fs-6" id="loginbtn">
                 <small>Login</small>
               </button>
             </div>

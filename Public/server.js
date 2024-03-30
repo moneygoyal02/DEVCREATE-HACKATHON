@@ -32,6 +32,8 @@ app.get("/", function (req, resp) {
     resp.sendFile(filePath);
   });
 
+  // -----------sign-up button --------------------
+
   app.post("/profile-save", function (req, resp) {
     // create table users (emailid varchar(30) primary key, pwd varchar(30) , usertype varchar(10) , dos date , status int );
     const email = req.body.txttEmail;
@@ -47,6 +49,38 @@ app.get("/", function (req, resp) {
           resp.send("Sign up successfully");
           
         } else resp.send(err.message);
+      }
+    );
+  });
+
+
+  // -----------login-button------------------------
+
+  app.post("/checkk-login-info", function (req, resp) {
+    const txtEmail = req.body.email;
+  
+    const logpass = req.body.password;
+  
+    mysql.query(
+      "select * from users where emailid = ? and pwd = ?",
+      [txtEmail, logpass],
+      function (err, resultJsonAry) {
+        if (err) {
+          resp.send(err.message);
+  
+          return;
+        }
+  
+        if (resultJsonAry.length == 1) {
+          if (resultJsonAry[0].status == 1) {
+            const userType = resultJsonAry[0].usertype;
+            
+  
+            resp.send(userType);
+          } else resp.send("Ur Account Is blocked !! Contact Admin");
+        } else {
+          resp.send("Invalid email or password");
+        }
       }
     );
   });
