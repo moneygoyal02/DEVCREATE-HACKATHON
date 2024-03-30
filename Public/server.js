@@ -84,3 +84,9 @@ app.get("/", function (req, resp) {
       }
     );
   });
+
+  app.get("/cd", function (req, resp) {
+    let filePath = process.cwd() + "/web/customer-Dash.html";
+    resp.sendFile(filePath);
+  });
+
