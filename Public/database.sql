@@ -6,5 +6,5 @@ create table users (emailid varchar(30) primary key, pwd varchar(30) , usertype 
 select * from users;
 
 create table cuprofile (emailid varchar(30) primary key , FName varchar(30) ,  contact varchar(15) , address varchar(100) ,  city varchar(30) , state varchar(50) , ppic varchar(300) );
-
+create table vendorprofile
 select * from cuprofile; 
