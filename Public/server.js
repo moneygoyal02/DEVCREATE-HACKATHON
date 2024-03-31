@@ -277,5 +277,13 @@ app.get("/", function (req, resp) {
     resp.sendFile(filePath);
   });
 
+  app.get("/angular-fetch-allserviproviders", function (req, resp) {
+    mysql.query("select * vendorprofile", function (err, result) {
+      if (err) {
+        resp.send(err.message);
+        return;
+      } else resp.send(result);
+    });
+  });
   
 

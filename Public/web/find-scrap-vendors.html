@@ -125,8 +125,7 @@
       "myController",
       function ($scope, $http) {
         $scope.jsonRecordsAry = [];
-        $scope.UniqueCities = [];
-        $scope.UniqueSercat = [];
+       
 
         $scope.doFetchAll = function () {
           let url = "/angular-fetch-allserviproviders";
@@ -139,16 +138,15 @@
           }
         };
        
-        $scope.showModal = function (selectedRecord) {
-          $scope.selectedRecord = selectedRecord;
-          $("#show").modal("show");
-        };
+       
       }
     );
   </script>
 
   </head>
-  <body >
+  <body ng-app="myModule"
+  ng-controller="myController"
+  ng-init="doFetchAll();">
     
     <nav
       class="navbar navbar-expand-lg fixed-top bg-body-tertiary"
@@ -172,6 +170,26 @@
         
       </div>
     </nav>
+
+    <section id="portfolio" class="portfolio  mb-5 section-padding" style="margin-top: 100px;">
+        <div class="container">
+          
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-4" ng-repeat="obj in jsonRecordsAry ">
+              <div class="card text-center bg-white pb-2">
+                <div class="card-body text-dark">
+                  
+                  <h3 class="card-titel">{{obj.emailid}}</h3>
+                
+                </div>
+              </div>
+            </div>
+          
+          
+          
+          </div>
+        </div>
+      </section>
 
    
   </body>
