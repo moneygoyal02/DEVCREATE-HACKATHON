@@ -12,8 +12,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <script>
+        function fetchUser() {
+          let activeUser = localStorage.getItem("activeUser");
+          document.querySelector("#auser").innerHTML = activeUser;
+         
+        }
+      </script>
 </head>
-<body ng-app="myModule" ng-controller="myController" ng-init="doFetchAll();">
+<body ng-app="myModule" ng-controller="myController" ng-init="doFetchAll();" onload="fetchUser();">
     <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -22,6 +30,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <span id="auser"></span>
         </div>
     </nav>
 
@@ -46,13 +55,6 @@
     </section>
 
     
-       <script>
-      function fetchUser() {
-        let activeUser = localStorage.getItem("activePRO");
-        document.querySelector("#auser").innerHTML = activeUser;
-       
-      }
-    </script>
    
 
     <script>
@@ -72,20 +74,20 @@
                         alert(response.data);
                     }
                 };
-
+               
                 $scope.requestPickup = function (email) {
-                    
-                   let url = "/request-pickup?email="+ email;
-                   $http.get(url).then(success,errors);
-                   function success(response) {
+                let url = "/request-pickup?email=" + email+"&au="+localStorage.getItem("activeUser");
+                $http.get(url).then(success, errors);
+
+                function success(response) {
                     alert("Request for pickup sent successfully!");
-                    }
-                    function errors(response) {
-                      alert("Error occurred while sending request for pickup!");
-                    }
-                       
-                        
-                };
+                }
+
+                function errors(response) {
+                    alert("Error occurred while sending request for pickup!");
+    }
+};
+
             }
         );
     </script>
