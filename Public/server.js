@@ -278,12 +278,18 @@ app.get("/", function (req, resp) {
   });
 
   app.get("/angular-fetch-allserviproviders", function (req, resp) {
-    mysql.query("select * vendorprofile", function (err, result) {
+    console.log("scdscds");
+    mysql.query("SELECT * FROM vendorprofile", function (err, result) {
       if (err) {
         resp.send(err.message);
+        console.log(err.message);
         return;
-      } else resp.send(result);
+      } else {
+        resp.send(result);
+        console.log(result);
+      }
     });
   });
+  
   
 

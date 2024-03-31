@@ -24,7 +24,8 @@
     />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+
    
     <!-- -------------------------------------------------------search-------------------------- -->
 
@@ -179,7 +180,12 @@
               <div class="card text-center bg-white pb-2">
                 <div class="card-body text-dark">
                   
-                  <h3 class="card-titel">{{obj.emailid}}</h3>
+                  <h3 class="card-titel">{{obj.FName}}</h3>
+                  <p class="card-text">Email: {{obj.emailid}}</p>
+                  <p class="card-text">contact: {{obj.contact}}</p>
+                  <p class="card-text">city: {{obj.city}}</p>
+                  <p class="card-text">idproof: {{obj.idproof}}</p>
+                  <p class="card-text">{{obj.textbox}}</p>
                 
                 </div>
               </div>
