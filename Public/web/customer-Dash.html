@@ -43,6 +43,8 @@
           });
         });
       </script>
+
+      
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -56,8 +58,15 @@
       crossorigin="anonymous"
     />
     <script src="customer-dash.js"></script>
+    <script>
+        function fetchUser() {
+          let activeUser = localStorage.getItem("activeUser");
+          document.querySelector("#auses").innerHTML = activeUser;
+          document.querySelector("#EMail").value = activeUser;
+        }
+      </script>
   </head>
-  <body>
+  <body onload="fetchUser();">
     <!-- --------------------------NAV BAR---------------------------------- -->
 
     <nav
@@ -77,9 +86,9 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" ></span>
         </button>
-        
+       <b> <span id="auses" ></span></b>
       </div>
     </nav>
 
@@ -114,26 +123,13 @@
                 </div>
                 <h3 class="card-titel">Find scrap vendors</h3>
                 
-                <a href="#" class="btn btn-primary mt-3"
+                <a href="/fsv" class="btn btn-primary mt-3"
                   >Visit</a
                 >
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-12 col-lg-4">
-            <div class="card text-center bg-white pb-2">
-              <div class="card-body text-dark">
-                <div class="img-area mb-4">
-                  <img src="/pics/picksupsmanager.png" class="img-fluid"  style="height:277px;" alt="" />
-                </div>
-                <h3 class="card-titel">Pickups Manager</h3>
-                
-                <a href="#" class="btn btn-primary mt-3"
-                  >Visit</a
-                >
-              </div>
-            </div>
-          </div>
+          
           <div class="col-12 col-md-12 mt-1 col-lg-4">
             <div class="card text-center bg-white pb-2">
               <div class="card-body text-dark">

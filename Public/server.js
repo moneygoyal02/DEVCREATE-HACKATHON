@@ -155,6 +155,51 @@ app.get("/", function (req, resp) {
       resp.send("Please agree to terms & conditions");
     }
   });
+  app.post("/Saveee", function (req, resp) {
+    
+  
+    if (req.body.checkbox === "checked") {
+      const namee = req.body.name;
+      const contact = req.body.contact;
+      const addr = req.body.address;
+      const state = req.body.state;
+      const city = req.body.city;
+      const idproof=req.body.id;
+      const textbox=req.body.txtar;
+      const email = req.body.email;
+  
+      console.log(email);
+  
+      let filename;
+      if (req.files == null) filename = "nopic.jpg";
+      else {
+        filename = req.files.ppic.name;
+        let path = process.cwd() + "/web/pics/uploads/" + filename;
+        req.files.ppic.mv(path);
+      }
+  
+      req.body.ppic = filename;
+      // create table vendorprofile(emailid varchar(30) primary key,FName varchar(40),contact varchar(15) , address varchar(100) ,  city varchar(30) , state varchar(50) ,idproof varchar(15),textbox varchar(600),ppic varchar(300) );
+      // select * from cuprofile; 
+      mysql.query(
+        " insert into vendorprofile  values(?,?,?,?,?,?,?,?,?)",
+        [email, namee, contact, addr, city, state,idproof,textbox, filename],
+        function (err) {
+          if (err == null) {
+            console.log("Profile saved Successfully");
+  
+            resp.send("Profile saved Successfully");
+          } else {
+            console.log(err.message);
+            resp.send("Error saving profile");
+          }
+        }
+      );
+    } else {
+      console.log("please aggre to term&conditions");
+      resp.send("Please agree to terms & conditions");
+    }
+  });
   
   app.get("/search", function (req, resp) {
     const email = req.query.email;
@@ -224,6 +269,11 @@ app.get("/", function (req, resp) {
 
   app.get("/vp", function (req, resp) {
     let filePath = process.cwd() + "/web/vendor-profile.html";
+    resp.sendFile(filePath);
+  });
+
+  app.get("/fsv", function (req, resp) {
+    let filePath = process.cwd() + "/web/find-scrap-vendors.html";
     resp.sendFile(filePath);
   });
 
