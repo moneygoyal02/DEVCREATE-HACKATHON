@@ -43,6 +43,7 @@
           });
         });
       </script>
+
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -56,8 +57,15 @@
       crossorigin="anonymous"
     />
     <script src="customer-dash.js"></script>
+    <script>
+      function fetchUser() {
+        let activeUser = localStorage.getItem("activePRO");
+        document.querySelector("#auser").innerHTML = activeUser;
+       
+      }
+    </script>
   </head>
-  <body>
+  <body onload="fetchUser();">
     <!-- --------------------------NAV BAR---------------------------------- -->
 
     <nav
@@ -79,6 +87,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        <span id="auser"></span>
         
       </div>
     </nav>

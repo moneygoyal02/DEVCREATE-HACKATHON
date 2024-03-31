@@ -29,43 +29,7 @@
     <!-- -------------------------------------------------------search-------------------------- -->
 
 
-    <script>
-      $(document).ready(function(){
-        $("#srch").click(function(){
-
-          let obj= {
-            url: "/search",
-
-            data: {
-              
-
-              email : $("#EmailAdd").val(),
-            }
-          };
-
-          $.ajax(obj).done(function(ary){
-
-            // alert(JSON.stringify(ary));
-            $("#Name").val(ary[0].FName);
-            $("#contact").val(ary[0].contact);
-            $("#Addr").val(ary[0].address);
-            $("#State").val(ary[0].state);
-            $("#City").val(ary[0].city);
-            
-            
-            $("#img-preview").prop("src","/uploads/"+ary[0].ppic);
-
-            $("#hdn").val(ary[0].ppic);
-
-          }).fail(function(err){
-            alert("Error=" + err)
-          })
-
-        })
-
-
-      })
-    </script>
+   
 
     <!-- ------------------------------------------image preview------------------------------------------- -->
 
@@ -123,7 +87,7 @@
      
   function fetchUser()
    {
-     let activeUser=localStorage.getItem("activeUser");
+     let activeUser=localStorage.getItem("activePRO");
      document.querySelector("#EmailAdd").value=activeUser;
    }
  </script>
@@ -153,7 +117,7 @@
       </div>
     </nav>
 
-    <form action="/Saveee" method="post" enctype="multipart/form-data" >
+    <form action="/Sa" method="post" enctype="multipart/form-data" >
       <input type="hidden" id="hdn" name="hdn" >
     <div
       class="container d-flex justify-content-center"
@@ -185,6 +149,7 @@
               name="email"
               placeholder="Enter your Email address"
              readonly
+
              
             />
           </div>

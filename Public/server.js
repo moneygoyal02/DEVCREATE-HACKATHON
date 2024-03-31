@@ -155,7 +155,7 @@ app.get("/", function (req, resp) {
       resp.send("Please agree to terms & conditions");
     }
   });
-  app.post("/Saveee", function (req, resp) {
+  app.post("/Sa", function (req, resp) {
     
   
     if (req.body.checkbox === "checked") {
@@ -182,7 +182,7 @@ app.get("/", function (req, resp) {
       // create table vendorprofile(emailid varchar(30) primary key,FName varchar(40),contact varchar(15) , address varchar(100) ,  city varchar(30) , state varchar(50) ,idproof varchar(15),textbox varchar(600),ppic varchar(300) );
       // select * from cuprofile; 
       mysql.query(
-        " insert into vendorprofile  values(?,?,?,?,?,?,?,?,?)",
+        " insert into vp  values(?,?,?,?,?,?,?,?,?)",
         [email, namee, contact, addr, city, state,idproof,textbox, filename],
         function (err) {
           if (err == null) {
@@ -279,7 +279,7 @@ app.get("/", function (req, resp) {
 
   app.get("/angular-fetch-allserviproviders", function (req, resp) {
     console.log("scdscds");
-    mysql.query("SELECT * FROM vendorprofile", function (err, result) {
+    mysql.query("SELECT * FROM vp", function (err, result) {
       if (err) {
         resp.send(err.message);
         console.log(err.message);

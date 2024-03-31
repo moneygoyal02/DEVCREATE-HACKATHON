@@ -10,9 +10,9 @@ create table cuprofile (emailid varchar(30) primary key , FName varchar(30) ,  c
 
 select * from cuprofile; 
 
-create table vendorprofile(emailid varchar(30) primary key,FName varchar(40),contact varchar(15) , address varchar(100) ,  city varchar(30) , state varchar(50) ,idproof varchar(15),textbox varchar(600),ppic varchar(300) );
-select * from vendorprofile; 
 
+create table vp(emailid varchar(30) primary key,FName varchar(40),contact varchar(15) , address varchar(100) ,  city varchar(30) , state varchar(50) ,idproof varchar(15),textbox varchar(600),ppic varchar(300) );
+select * from vp; 
 
 
 
