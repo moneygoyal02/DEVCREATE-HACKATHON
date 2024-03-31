@@ -1,203 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile-customer</title>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <style>
-      #img-preview {
-        max-width: 100%;
-        max-height: 200px;
-        margin-top: 10px;
-      }
-    </style>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
-
-   
-    <!-- -------------------------------------------------------search-------------------------- -->
-
-
-    <script>
-      $(document).ready(function(){
-        $("#srch").click(function(){
-
-          let obj= {
-            url: "/search",
-
-            data: {
-              
-
-              email : $("#EmailAdd").val(),
-            }
-          };
-
-          $.ajax(obj).done(function(ary){
-
-            // alert(JSON.stringify(ary));
-            $("#Name").val(ary[0].FName);
-            $("#contact").val(ary[0].contact);
-            $("#Addr").val(ary[0].address);
-            $("#State").val(ary[0].state);
-            $("#City").val(ary[0].city);
-            
-            
-            $("#img-preview").prop("src","/uploads/"+ary[0].ppic);
-
-            $("#hdn").val(ary[0].ppic);
-
-          }).fail(function(err){
-            alert("Error=" + err)
-          })
-
-        })
-
-
-      })
-    </script>
-
-    <!-- ------------------------------------------image preview------------------------------------------- -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
-    <script>
-      function previewImage(input) {
-        var preview = document.getElementById("img-preview");
-        var file = input.files[0];
-        var reader = new FileReader();
-
-        reader.onloadend = function () {
-          preview.src = reader.result;
-          preview.classList.remove("d-none");
-        };
-
-        if (file) {
-          reader.readAsDataURL(file);
-        } else {
-          preview.src = "";
-          preview.classList.add("d-none");
-        }
-      }
-    </script>
-
-    <style>
-        .navbar-nav a{
-    font-size: 15px;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.navbar-light .navbar-brand{
-
-    color: #000;
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 2px;
-
-}
-
-.navbar-light .navbar-brand:focus,
-.navbar-light .navbar-brand:hover{
-
-    color: #000;
-
-}
-
-.navbar-light .navbar-nav .navbar-link{
-    color: #000;
-
-}
-    </style>
-
-<script>
-    var module = angular.module("myModule", []);
-    var controller = module.controller(
-      "myController",
-      function ($scope, $http) {
-        $scope.jsonRecordsAry = [];
-       
-
-        $scope.doFetchAll = function () {
-          let url = "/angular-fetch-allserviproviders";
-          $http.get(url).then(success, errors);
-          function success(response) {
-            $scope.jsonRecordsAry = response.data;
-          }
-          function errors(response) {
-            alert(response.data);
-          }
-        };
-       
-       
-      }
-    );
-  </script>
-
-  </head>
-  <body ng-app="myModule"
-  ng-controller="myController"
-  ng-init="doFetchAll();">
-    
-    <nav
-      class="navbar navbar-expand-lg fixed-top bg-body-tertiary"
-      
-    >
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <span class="text-success" style="font-weight: 800">SCRAP</span>CON
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-      </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body ng-app="myModule" ng-controller="myController" ng-init="doFetchAll();">
+    <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="text-success" style="font-weight: 800">SCRAP</span>CON
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
     </nav>
 
-    <section id="portfolio" class="portfolio  mb-5 section-padding" style="margin-top: 100px;">
+    <section id="portfolio" class="portfolio mb-5 section-padding" style="margin-top: 100px;">
         <div class="container">
-          
-          <div class="row">
-            <div class="col-12 col-md-12 col-lg-4" ng-repeat="obj in jsonRecordsAry ">
-              <div class="card text-center bg-white pb-2">
-                <div class="card-body text-dark">
-                  
-                  <h3 class="card-titel">{{obj.FName}}</h3>
-                  <p class="card-text">Email: {{obj.emailid}}</p>
-                  <p class="card-text">contact: {{obj.contact}}</p>
-                  <p class="card-text">city: {{obj.city}}</p>
-                  <p class="card-text">idproof: {{obj.idproof}}</p>
-                  <p class="card-text">{{obj.textbox}}</p>
-                
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-4" ng-repeat="obj in jsonRecordsAry">
+                    <div class="card text-center bg-white pb-2">
+                        <div class="card-body text-dark">
+                            <h3 class="card-title">{{obj.FName}}</h3>
+                            <p class="card-text">Email: {{obj.emailid}}</p>
+                            <p class="card-text">Contact: {{obj.contact}}</p>
+                            <p class="card-text">City: {{obj.city}}</p>
+                            <p class="card-text">ID Proof: {{obj.idproof}}</p>
+                            <p class="card-text">{{obj.textbox}}</p>
+                            <button class="btn btn-primary" ng-click="requestPickup(obj.emailid)">Request Pickup</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          
-          
-          
-          </div>
         </div>
-      </section>
+    </section>
 
+    
+       <script>
+      function fetchUser() {
+        let activeUser = localStorage.getItem("activePRO");
+        document.querySelector("#auser").innerHTML = activeUser;
+       
+      }
+    </script>
    
-  </body>
+
+    <script>
+        var module = angular.module("myModule", []);
+        var controller = module.controller(
+            "myController",
+            function ($scope, $http) {
+                $scope.jsonRecordsAry = [];
+
+                $scope.doFetchAll = function () {
+                    let url = "/angular-fetch-allserviproviders";
+                    $http.get(url).then(success, errors);
+                    function success(response) {
+                        $scope.jsonRecordsAry = response.data;
+                    }
+                    function errors(response) {
+                        alert(response.data);
+                    }
+                };
+
+                $scope.requestPickup = function (email) {
+                    
+                   let url = "/request-pickup?email="+ email;
+                   $http.get(url).then(success,errors);
+                   function success(response) {
+                    alert("Request for pickup sent successfully!");
+                    }
+                    function errors(response) {
+                      alert("Error occurred while sending request for pickup!");
+                    }
+                       
+                        
+                };
+            }
+        );
+    </script>
+</body>
 </html>
-  

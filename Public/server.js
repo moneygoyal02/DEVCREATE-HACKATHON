@@ -290,6 +290,39 @@ app.get("/", function (req, resp) {
       }
     });
   });
+
+  app.get("/mr", function (req, resp) {
+    let filePath = process.cwd() + "/web/market-rates.html";
+    resp.sendFile(filePath);
+  });
+
+  app.get("/request-pickup", function (req, resp) {
+    
+    
+    
+  
+    var emailId = req.query.email;
+
+    console.log(emailId);
+    console.log(activeUser);
+    
+    
+
+    
+    
+    mysql.query("insert into rp ", [emailId, activeUser], function (err, result) {
+        if (err) {
+            console.error("Error inserting data into rp table: " + err);
+            resp.status(500).send("Error inserting data into rp table");
+            return;
+        }
+        console.log("Data inserted into rp table successfully");
+        resp.status(200).send("Request pickup initiated successfully");
+    });
+});
+
+
+
   
   
 
